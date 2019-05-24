@@ -1,4 +1,4 @@
-package cn.edu.bupt.pcsauth.customImpl;
+package cn.edu.bupt.pcsauth.service.impl;
 
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -18,9 +18,9 @@ import java.util.*;
  * @author arron
  * @date 19-5-24
  * @param null
- * @return 
+ * @return
  */
-public class MyRedisTokenStore implements TokenStore {
+public class MyRedisTokenStoreImpl implements TokenStore {
     private static final String ACCESS = "access:";
     private static final String AUTH_TO_ACCESS = "auth_to_access:";
     private static final String AUTH = "bupt:";
@@ -35,7 +35,7 @@ public class MyRedisTokenStore implements TokenStore {
     private RedisTokenStoreSerializationStrategy serializationStrategy = new JdkSerializationStrategy();
     private String prefix = "";
 
-    public MyRedisTokenStore(RedisConnectionFactory connectionFactory) {
+    public MyRedisTokenStoreImpl(RedisConnectionFactory connectionFactory) {
         this.connectionFactory = connectionFactory;
     }
 

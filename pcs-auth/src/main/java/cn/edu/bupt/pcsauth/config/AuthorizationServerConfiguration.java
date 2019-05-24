@@ -1,6 +1,6 @@
 package cn.edu.bupt.pcsauth.config;
 
-import cn.edu.bupt.pcsauth.customImpl.MyRedisTokenStore;
+import cn.edu.bupt.pcsauth.service.impl.MyRedisTokenStoreImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
  * @author arron
@@ -55,7 +54,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
      */
     @Bean
     public TokenStore tokenStore() {
-        return new MyRedisTokenStore(redisConnectionFactory);
+        return new MyRedisTokenStoreImpl(redisConnectionFactory);
 //        return new RedisTokenStore(redisConnectionFactory);
 //        return new JdbcTokenStore(dataSource);
     }
