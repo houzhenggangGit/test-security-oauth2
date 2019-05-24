@@ -13,7 +13,13 @@ import org.springframework.security.oauth2.provider.token.store.redis.JdkSeriali
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 
 import java.util.*;
-
+/**
+ *
+ * @author arron
+ * @date 19-5-24
+ * @param null
+ * @return 
+ */
 public class MyRedisTokenStore implements TokenStore {
     private static final String ACCESS = "access:";
     private static final String AUTH_TO_ACCESS = "auth_to_access:";
