@@ -1,4 +1,4 @@
-package com.service.auth.serviceauth.customImpl;
+package cn.edu.bupt.pcsauth.customImpl;
 
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -17,7 +17,7 @@ import java.util.*;
 public class MyRedisTokenStore implements TokenStore {
     private static final String ACCESS = "access:";
     private static final String AUTH_TO_ACCESS = "auth_to_access:";
-    private static final String AUTH = "auth:";
+    private static final String AUTH = "bupt:";
     private static final String REFRESH_AUTH = "refresh_auth:";
     private static final String ACCESS_TO_REFRESH = "access_to_refresh:";
     private static final String REFRESH = "refresh:";
@@ -111,7 +111,7 @@ public class MyRedisTokenStore implements TokenStore {
 
 
         try {
-            bytes = conn.get(this.serializeKey("auth:" + token));
+            bytes = conn.get(this.serializeKey("bupt:" + token));
         } finally {
             conn.close();
         }
@@ -143,7 +143,7 @@ public class MyRedisTokenStore implements TokenStore {
         byte[] serializedAccessToken = this.serialize((Object) token);
         byte[] serializedAuth = this.serialize((Object) authentication);
         byte[] accessKey = this.serializeKey("access:" + token.getValue());
-        byte[] authKey = this.serializeKey("auth:" + token.getValue());
+        byte[] authKey = this.serializeKey("bupt:" + token.getValue());
         byte[] authToAccessKey = this.serializeKey("auth_to_access:" + this.authenticationKeyGenerator.extractKey(authentication));
         byte[] approvalKey = this.serializeKey("uname_to_access:" + getApprovalKey(authentication));
         byte[] clientId = this.serializeKey("client_id_to_access:" + authentication.getOAuth2Request().getClientId());
@@ -224,7 +224,7 @@ public class MyRedisTokenStore implements TokenStore {
 
     public void removeAccessToken(String tokenValue) {
         byte[] accessKey = this.serializeKey("access:" + tokenValue);
-        byte[] authKey = this.serializeKey("auth:" + tokenValue);
+        byte[] authKey = this.serializeKey("bupt:" + tokenValue);
         byte[] accessToRefreshKey = this.serializeKey("access_to_refresh:" + tokenValue);
         RedisConnection conn = this.getConnection();
 

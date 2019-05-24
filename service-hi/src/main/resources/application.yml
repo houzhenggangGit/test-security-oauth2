@@ -6,10 +6,10 @@ server:
   port: 8765
 spring:
   application:
-    name: service-hi
+    name: edu-hi
 #  datasource:
 #      driver-class-name: com.mysql.jdbc.Driver
-#      url: jdbc:mysql://172.16.10.44:3306/spring-cloud-auth?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+#      url: jdbc:mysql://172.16.10.44:3306/spring-cloud-bupt?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
 #      username: dev
 #      password: NHdev2015
 #
