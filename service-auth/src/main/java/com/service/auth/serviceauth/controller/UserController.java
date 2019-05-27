@@ -2,6 +2,8 @@ package com.service.auth.serviceauth.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,11 @@ public class UserController {
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>");
         logger.info(principal.toString());
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>");
+        Object pri = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        logger.info(pri.toString());
         return principal;
+
+
+
     }
 }

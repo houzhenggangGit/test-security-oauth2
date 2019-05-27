@@ -3,8 +3,8 @@ spring:
     name: service-auth
 
   redis:
-    host: 127.0.0.1
-    database: 1
+    host: 10.103.241.247
+    database: 13
 
 
 server:
@@ -12,7 +12,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://10.103.246.113:8000/eureka/
 
 #logging.level.org.springframework.security: DEBUG
 
